@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/4.jpg" class="logo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">My project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Aspiring Web Devoloper </p>
+                <h1>I'm <span>Niranjana</span><br>An ECE student passionate about web devolopement </h1>
+
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------about----------------------------------------------------->
+    <div id="about">
+        <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/IMG-20260607-WA0010.jpg.jpeg" >
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>
+                            Hello! I'm Niranjana, a third-year Electronics and Communication Engineering (ECE) student with a strong interest in web development. I enjoy learning new technologies, building web applications, and improving my programming skills through practical projects. My goal is to become a skilled full-stack web developer and create useful, user-friendly applications that solve real-world problems.
+                        </p>
+                        <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links"onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span> Skills</span><br>HTML<br>CSS<br>Problem solving</li>
+                            <li><span>Currently Learning</span><br>Java Script</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Bachelor of Engineering (B.E.)</span><br>Currently pursuing a Bachelor of Engineering in Electronics and Communication Engineering (ECE) at Mangayarkarasi College of Engineering, Madurai.</li>
+                            <li><span>Higher Secondary Education</span><br>Completed Higher Secondary Education at Government Girls Higher Secondary School, Sholavandan, Madurai.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------------portfolio------------------------------->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/6.jpg">
+                    <div class="layer">
+                        <h3>Study Shuffle</h3>
+                        <h5>Developed with the assistance of AI tools</h5>
+                        <p>Study Shuffle is a productivity app designed to help students decide what to study next. Users enter their subjects and chapters, and the app randomly selects a subject and topic to focus on. It includes a 45-minute study timer and a 10-minute break timer to support focused learning. The app also tracks study progress, helping students stay organized, productive, and consistent in their studies.</p>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/Screenshot_8-6-2026_82822_.jpeg">
+                    <div class="layer">
+                        <h3>Quiz</h3>
+                    <h5>Built using html</h5>
+                    <p>Developed a multi-page Technology Knowledge Quiz using HTML. The project includes user input forms, multiple-choice questions, answer validation, and smooth navigation between pages. It demonstrates fundamental web development concepts and user interaction design.</p>
+                    </div>
+                </div>               
+            </div>
+            <a href="#" class="btn">See More</a>
+        </div>
+    </div>
+<!-- --------------------------contact------------------------------------------------ -->
+ <div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p>Email:niranjana31507@gmail.com</p>
+                <p>LinkedIn:<a href="https://www.linkedin.com/in/niranjana-a-b26953390?utm_source=share_via&utm_content=profile&utm_medium=member_android">Niranjana</a></p>
+            </div>
+            <div class="contact-right">
+                 <form action="http://localhost:3000/contact" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="text" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+ </div>
+    
+<!---------------------javascript--------------->
+<script>
+    var tablinks=document.getElementsByClassName("tab-links");
+    var tabcontents=document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link"); 
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");   
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+</body>
+</html>

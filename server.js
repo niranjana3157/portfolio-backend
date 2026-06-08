@@ -1,0 +1,42 @@
+const express = require("express");
+const mongoose = require("mongoose");
+
+const app = express();
+
+// 1. Connect DB
+mongoose.connect("mongodb://portfoliojana:87606858863157@ac-b21ns8h-shard-00-00.dhig8zq.mongodb.net:27017,ac-b21ns8h-shard-00-01.dhig8zq.mongodb.net:27017,ac-b21ns8h-shard-00-02.dhig8zq.mongodb.net:27017/?ssl=true&replicaSet=atlas-1qchtr-shard-0&authSource=admin&appName=Cluster0")
+.then(() => console.log("MongoDB Connected"))
+.catch((err) => console.log(err));
+
+// 2. Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// 3. Schema
+const contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    message:String
+});
+
+// 4. Model
+const Contact = mongoose.model("Contact", contactSchema);
+
+// 5. Save data
+app.post("/contact", async (req, res) => {
+    try {
+        const newContact = new Contact(req.body);
+        await newContact.save();
+
+        console.log("Saved:", req.body);
+        res.send("Data saved successfully!");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error saving data");
+    }
+});
+
+// 6. Server
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
