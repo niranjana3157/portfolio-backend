@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // MongoDB Connection
-mongoose.connect("YOUR_MONGODB_CONNECTION_STRING")
+mongoose.connect("mongodb://portfoliojana:87606858863157@ac-b21ns8h-shard-00-00.dhig8zq.mongodb.net:27017,ac-b21ns8h-shard-00-01.dhig8zq.mongodb.net:27017,ac-b21ns8h-shard-00-02.dhig8zq.mongodb.net:27017/?ssl=true&replicaSet=atlas-1qchtr-shard-0&authSource=admin&appName=Cluster0")
 .then(() => console.log("MongoDB Connected"))
 .catch((err) => console.log(err));
 
