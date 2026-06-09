@@ -16,6 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.send("Portfolio API is running!");
 });
+app.get("/", (req, res) => {
+  res.json({ message: "API is working" });
+});
 
 // Schema
 const contactSchema = new mongoose.Schema({
